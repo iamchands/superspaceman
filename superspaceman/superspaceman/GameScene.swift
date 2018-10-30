@@ -66,6 +66,7 @@ class GameScene: SKScene {
 //        let emitter = NSKeyedUnarchiver.unarchiveObject(withFile: pathToEmitter!) as? SKEmitterNode
 //        addChild(emitter!)
         
+        //adding engineExaust Trail to the player
         let engineExhaustPath = Bundle.main.path(forResource: "EngineExhaust", ofType: "sks")
         engineExhaust = NSKeyedUnarchiver.unarchiveObject(withFile: engineExhaustPath!) as? SKEmitterNode
         engineExhaust?.position = CGPoint(x: 0.0, y: -(playerNode.size.height / 2))
