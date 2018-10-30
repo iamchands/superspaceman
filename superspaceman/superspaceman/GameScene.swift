@@ -20,6 +20,7 @@ class GameScene: SKScene {
     let foregroundNode = SKSpriteNode()
     let CoreMotionManager = CMMotionManager()
     var impulseCount = 4
+    var engineExhaust: SKEmitterNode?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,6 +31,7 @@ class GameScene: SKScene {
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0);
         backgroundColor = SKColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         isUserInteractionEnabled = true
+        
     
         // adding the background
         backgroundNode.size.width = frame.size.width
@@ -58,6 +60,18 @@ class GameScene: SKScene {
         foregroundNode.addChild(playerNode)
         addOrbsToForeground()
         addBlackHolesToForeground()
+        
+        
+//        let pathToEmitter = Bundle.main.path(forResource: "MySparkParticle" , ofType: "sks")
+//        let emitter = NSKeyedUnarchiver.unarchiveObject(withFile: pathToEmitter!) as? SKEmitterNode
+//        addChild(emitter!)
+        
+        let engineExhaustPath = Bundle.main.path(forResource: "EngineExhaust", ofType: "sks")
+        engineExhaust = NSKeyedUnarchiver.unarchiveObject(withFile: engineExhaustPath!) as? SKEmitterNode
+        engineExhaust?.position = CGPoint(x: 0.0, y: -(playerNode.size.height / 2))
+        playerNode.addChild(engineExhaust!)
+        engineExhaust?.isHidden = true
+        
     }
         //adding orbNode
      func addOrbsToForeground(){
@@ -83,8 +97,11 @@ class GameScene: SKScene {
                 orbNode.physicsBody?.collisionBitMask = 0
                 orbNode.name = "POWER_UP_ORB"
                 foregroundNode.addChild(orbNode)
+                
             }
         }
+    
+    
         func addBlackHolesToForeground(){
             let textureAtlas = SKTextureAtlas(named: "sprites.atlas")
             
@@ -118,6 +135,7 @@ class GameScene: SKScene {
             foregroundNode.addChild(blackHoleNode)
         }
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !playerNode.physicsBody!.isDynamic {
             playerNode.physicsBody?.isDynamic = true
@@ -128,6 +146,10 @@ class GameScene: SKScene {
         if impulseCount > 0 {
             playerNode.physicsBody!.applyImpulse(CGVector(dx: 0.0, dy: 40.0))
             impulseCount -= 1
+            
+            engineExhaust!.isHidden = false
+            
+            Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(GameScene.hideEngineExhaust(_:)), userInfo: nil, repeats: false)
         }
     }
     override func update(_ currentTime: TimeInterval){
@@ -155,6 +177,12 @@ class GameScene: SKScene {
     deinit {
         CoreMotionManager.stopAccelerometerUpdates()
     }
+    @objc func hideEngineExhaust(_ timer:Timer!){
+        if !engineExhaust!.isHidden {
+            engineExhaust?.isHidden = true
+        }
+    }
+    
 }
 
 extension GameScene: SKPhysicsContactDelegate {

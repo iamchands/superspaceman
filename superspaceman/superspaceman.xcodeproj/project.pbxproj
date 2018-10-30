@@ -15,6 +15,8 @@
 		1819636421758BB800F7DBEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1819636221758BB800F7DBEC /* LaunchScreen.storyboard */; };
 		1819636C21758C4400F7DBEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1819636B21758C4400F7DBEC /* Images.xcassets */; };
 		1819636E21758CE900F7DBEC /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1819636D21758CE900F7DBEC /* sprites.atlas */; };
+		9459B1C02187E9DD00FF70E8 /* MySparkParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9459B1BF2187E9DD00FF70E8 /* MySparkParticle.sks */; };
+		9459B1C22187EDAB00FF70E8 /* EngineExhaust.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9459B1C12187EDAB00FF70E8 /* EngineExhaust.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1819636521758BB800F7DBEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1819636B21758C4400F7DBEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1819636D21758CE900F7DBEC /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
+		9459B1BF2187E9DD00FF70E8 /* MySparkParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MySparkParticle.sks; sourceTree = "<group>"; };
+		9459B1C12187EDAB00FF70E8 /* EngineExhaust.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EngineExhaust.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,8 @@
 		1819634721758BB500F7DBEC = {
 			isa = PBXGroup;
 			children = (
+				9459B1BF2187E9DD00FF70E8 /* MySparkParticle.sks */,
+				9459B1C12187EDAB00FF70E8 /* EngineExhaust.sks */,
 				1819635221758BB500F7DBEC /* superspaceman */,
 				1819635121758BB500F7DBEC /* Products */,
 			);
@@ -131,9 +137,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9459B1C22187EDAB00FF70E8 /* EngineExhaust.sks in Resources */,
 				1819636E21758CE900F7DBEC /* sprites.atlas in Resources */,
 				1819635F21758BB500F7DBEC /* Main.storyboard in Resources */,
 				1819636C21758C4400F7DBEC /* Images.xcassets in Resources */,
+				9459B1C02187E9DD00FF70E8 /* MySparkParticle.sks in Resources */,
 				1819636121758BB800F7DBEC /* Assets.xcassets in Resources */,
 				1819636421758BB800F7DBEC /* LaunchScreen.storyboard in Resources */,
 			);
